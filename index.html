@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Специальное предложение - скидка 66% действует 24 часа">
+    <title>Специальное предложение - 990 руб.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .discount {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .pricing {
+            margin: 25px 0;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .price {
+            font-size: 52px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 10px 0;
+        }
+        
+        .timer-label {
+            color: #666;
+            font-size: 15px;
+            margin: 25px 0 15px 0;
+            font-weight: 500;
+        }
+        
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0 30px 0;
+        }
+        
+        .time-block {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 12px;
+            border-radius: 12px;
+            min-width: 75px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .time-number {
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+        }
+        
+        .time-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-top: 6px;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .expired {
+            display: none;
+            color: #e74c3c;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .expired.show {
+            display: block;
+        }
+        
+        .features {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+            text-align: left;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .feature::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .price {
+                font-size: 42px;
+            }
+            
+            .timer {
+                gap: 10px;
+            }
+            
+            .time-block {
+                min-width: 65px;
+                padding: 15px 10px;
+            }
+            
+            .time-number {
+                font-size: 30px;
+            }
+            
+            .btn {
+                padding: 15px 35px;
+                font-size: 16px;
+            }
+            
+            .badge {
+                font-size: 12px;
+                padding: 6px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="badge">🔥 ПРЕДЛОЖЕНИЕ НА 24:00</div>
+        
+        <h1>Специальное предложение на практикум по похудению</h1>
+        
+        <div class="discount">Скидка 67%</div>
+        
+        <div class="pricing">
+            <div class="old-price">Обычная цена: 2900 руб.</div>
+            <div class="price">990 ₽</div>
+        </div>
+        
+        <div class="timer-label">⏰ До окончания предложения осталось:</div>
+        
+        <div class="timer" id="timer">
+            <div class="time-block">
+                <span class="time-number" id="hours">00</span>
+                <span class="time-label">Часов</span>
+            </div>
+            <div class="time-block">
+                <span class="time-number" id="minutes">00</span>
+                <span class="time-label">Минут</span>
+            </div>
+            <div class="time-block">
+                <span class="time-number" id="seconds">00</span>
+                <span class="time-label">Секунд</span>
+            </div>
+        </div>
+        
+        <div class="expired" id="expired">⚠️ Время предложения истекло!</div>
+        
+        <a href="https://payform.ru/p5663Bk/" class="btn" id="buyBtn">Купить курс за 990 ₽</a>
+        
+        <div class="features">
+            <div class="feature">Доступ к практикуму на 6 месяцев</div>
+            <div class="feature">Пошаговый план похудения</div>
+            <div class="feature">Готовая программа тренировок</div>
+        </div>
+    </div>
+
+    <script>
+        // Уникальный ключ для localStorage
+        const STORAGE_KEY = 'fitness_promo_timer_end_v1';
+        
+        // Функция добавления ведущего нуля
+        function pad(num) {
+            return num < 10 ? '0' + num : num;
+        }
+        
+        // Получаем время окончания или создаем новое
+        function getEndTime() {
+            let endTime = localStorage.getItem(STORAGE_KEY);
+            
+            if (!endTime) {
+                // Создаем таймер на 24 часа
+                const now = new Date().getTime();
+                endTime = now + (24 * 60 * 60 * 1000); // 24 часа в миллисекундах
+                localStorage.setItem(STORAGE_KEY, endTime);
+                console.log('Таймер запущен на 24 часа');
+            } else {
+                console.log('Таймер продолжается с прошлого запуска');
+            }
+            
+            return parseInt(endTime);
+        }
+        
+        // Обновление таймера
+        function updateTimer() {
+            const endTime = getEndTime();
+            const now = new Date().getTime();
+            const timeLeft = endTime - now;
+            
+            if (timeLeft <= 0) {
+                // Время истекло
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.getElementById('expired').classList.add('show');
+                document.getElementById('timer').style.opacity = '0.5';
+                
+                const btn = document.getElementById('buyBtn');
+                btn.style.opacity = '0.5';
+                btn.style.pointerEvents = 'none';
+                btn.textContent = 'Предложение завершено';
+                
+                console.log('Таймер завершен');
+                return;
+            }
+            
+            // Вычисляем часы, минуты и секунды
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Обновляем отображение
+            document.getElementById('hours').textContent = pad(hours);
+            document.getElementById('minutes').textContent = pad(minutes);
+            document.getElementById('seconds').textContent = pad(seconds);
+        }
+        
+        // Запускаем таймер
+        console.log('Инициализация таймера...');
+        updateTimer();
+        const interval = setInterval(updateTimer, 1000);
+        
+        // Для тестирования: раскомментируйте следующую строку, чтобы сбросить таймер
+        // localStorage.removeItem(STORAGE_KEY); location.reload();
+    </script>
+</body>
+</html>
